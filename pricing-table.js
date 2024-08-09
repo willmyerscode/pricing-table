@@ -183,10 +183,13 @@ class PricingTable {
       titleWrapper.append(titleElement);
 
       const subtitle = this.getSubtitle(item);
-      const subtitleElement = document.createElement(`${(this.settings.subtitleTag)}`);
-      subtitleElement.classList.add('pricing-subtitle');
-      subtitleElement.innerText = subtitle;
-      titleWrapper.append(subtitleElement);
+
+      if (subtitle) {
+        const subtitleElement = document.createElement(`${this.settings.subtitleTag}`);
+        subtitleElement.classList.add('pricing-subtitle');
+        subtitleElement.innerText = subtitle;
+        titleWrapper.append(subtitleElement);
+      }
 
       const price = this.getPrice(item);
       const itemPrice = document.createElement(`${(this.settings.priceTag)}`);
