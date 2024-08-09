@@ -1,0 +1,270 @@
+/**
+* Pricing Tables For Squarespace 
+* Copyright Will-Myers.com & Abi Bacon
+* Development Lead, Abi Bacon
+**/
+
+[data-wm-plugin="pricing-table"] {
+  --item-gap: 20px;
+  --table-alignment: center;
+  
+  --item-background: var(--siteBackgroundColor);
+  --item-padding: 40px;
+  --item-width: 260px;
+
+  --title-wrapper-background: var(--item-background);
+
+  --title-text-color: var(--headingMediumColor);
+  --price-text-color: var(--headingSmallColor);
+  --subtitle-text-color: var(--headingSmallColor);
+  --content-text-color: var(--paragraphMediumColor);
+  
+  --border-width: 2px;
+  --border-type: solid;
+  --border-color: var(--list-section-simple-card-color);
+  --border-radius: 15px;
+  
+  --bs-horizontal-offset: 0px;
+  --bs-vertical-offset: 5px;
+  --bs-blur: 15px;
+  --bs-color: rgba(0, 0, 0, 0.4);
+
+  --subtitle-padding-bottom: 0px;
+  --subtitle-font-size: medium;
+
+  --price-margin-top: 1rem;
+  --suffix-content: 'per month';
+  --suffix-two-content: 'per year';
+  --suffix-font-size: 12px;
+  --suffix-spacing: 5px;
+
+  --button-alignment: start;
+  --button-border: var(--primary-button-stroke);
+  --button-border-radius: var(--border-radius);
+
+  --toggle-width: 220px;
+  --toggle-height: 45px;
+  --toggle-alignment: center;
+  --toggle-spacing: 17px;
+  --toggle-border-radius: 55px;
+  --toggle-border: 2px solid var(--list-section-simple-card-color);
+  --toggle-active-background: var(--list-section-simple-card-color);
+  --toggle-text: black;
+  --toggle-active-text: white;
+  --active-toggle-width: 110px;
+  --active-toggle-height: 35px;
+
+  --bullet-background: var(--list-section-simple-card-color);
+  --bullet-size: 20px;
+  --bullet-icon-size: 15px;
+  --bullet-spacing: 0px;
+
+  --recommended-text: 'MOST POPULAR';
+  --recommended-text-color: var(--siteBackgroundColor);
+  --recommended-background: var(--list-section-simple-card-color);
+  --recommended-top-position: 15px;
+  --recommended-padding: 2px;
+  --recommended-font-size: 12px;
+  --recommended-font-weight: 700;
+}
+
+[data-wm-plugin="pricing-table"] {
+  display: flex;
+  flex-direction: column;
+}
+
+[data-wm-plugin="pricing-table"] .pricing-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+[data-wm-plugin="pricing-table"] .wm-pricing-table {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--item-gap);
+  justify-content: var(--table-alignment);
+  opacity: 0;
+  visibility: hidden;
+  position: relative;
+}
+
+[data-wm-plugin="pricing-table"] .wm-pricing-table:nth-of-type(2) {
+  position: absolute;
+}
+
+[data-wm-plugin="pricing-table"] .wm-pricing-table.pricing-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+[data-wm-plugin="pricing-table"] .pricing-item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: var(--border-width) var(--border-type) var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--bs-horizontal-offset) var(--bs-vertical-offset) var(--bs-blur) var(--bs-color);
+  background: var(--item-background);
+  width: var(--item-width);
+  overflow: hidden;
+  padding: var(--item-padding);
+}
+
+[data-wm-plugin="pricing-table"] .title-wrapper {
+  background: var(--title-wrapper-background);
+}
+
+[data-wm-plugin="pricing-table"] .pricing-title {
+  color: var(--title-text-color);
+}
+
+[data-wm-plugin="pricing-table"] .pricing-subtitle {
+  color: var(--subtitle-text-color);
+  padding-bottom: var(--subtitle-padding-bottom);
+  font-size: var(--subtitle-font-size);
+}
+
+[data-wm-plugin="pricing-table"] .pricing-title, [data-wm-plugin="pricing-table"] .pricing-subtitle, [data-wm-plugin="pricing-table"] .pricing-price {
+  margin: 0px;
+}
+
+[data-wm-plugin="pricing-table"] .pricing-price {
+  margin-top: var(--price-margin-top);
+  color: var(--price-text-color);
+}
+
+[data-wm-plugin="pricing-table"] .pricing-price.price-suffix::after {
+  content: var(--suffix-content);
+  font-size: var(--suffix-font-size);
+  padding-left: var(--suffix-spacing);
+}
+
+[data-wm-plugin="pricing-table"] .wm-pricing-table:nth-of-type(2) .pricing-price.price-suffix::after {
+  content: var(--suffix-two-content);
+}
+
+[data-wm-plugin="pricing-table"] .pricing-content {
+  color: var(--content-text-color);
+}
+
+
+[data-wm-plugin="pricing-table"] .pricing-content ul {
+  padding-inline-start: 17px;
+}
+
+[data-wm-plugin="pricing-table"] .pricing-item .pricing-button {
+  width: -webkit-fill-available;
+  display: inline-block;
+  text-align: center;
+  margin-top: auto;
+  align-self: var(--button-alignment);
+  border-width: var(--button-border) !important;
+  border-radius: var(--button-border-radius);
+}
+
+[data-wm-plugin="pricing-table"] .pricing-toggle {
+  position: relative;
+  align-self: var(--toggle-alignment);
+  width: var(--toggle-width);
+  height: var(--toggle-height);
+  background: var(--toggle-background);
+  margin-bottom: var(--toggle-spacing);
+  border-radius: var(--toggle-border-radius);
+  border: var(--toggle-border);
+  overflow: hidden;
+}
+
+[data-wm-plugin="pricing-table"] .pricing-toggle .toggle-primary {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: calc(var(--toggle-width) / 2);
+  height: var(--toggle-height);
+  text-align: center;
+  z-index: 2;
+  align-content: center;
+  border: none;
+  background: none;
+}
+
+[data-wm-plugin="pricing-table"] .pricing-toggle .toggle-secondary {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: calc(var(--toggle-width) / 2);
+  height: var(--toggle-height);
+  text-align: center;
+  z-index: 2;
+  align-content: center;
+  border: none;
+  background: none;
+}
+
+[data-wm-plugin="pricing-table"] .pricing-toggle .toggle-primary > *, [data-wm-plugin="pricing-table"] .pricing-toggle .toggle-secondary > * {
+  margin: 0px;
+}
+
+[data-wm-plugin="pricing-table"] .pricing-toggle .toggle-active {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(5px, -50%);
+  width: 46%;
+  height: 85%;
+  text-align: center;
+  background: var(--toggle-active-background);
+  border-radius: var(--toggle-border-radius);
+}
+
+[data-wm-plugin="pricing-table"] .pricing-toggle .toggle-active.primary {
+  left: 0;
+  transition: 1s left ease;
+}
+
+[data-wm-plugin='pricing-table'] .pricing-toggle .toggle-active.secondary {
+  left: 50%;
+  transition: 1s left ease;
+}
+
+[data-wm-plugin="pricing-table"] .pricing-toggle .active {
+  color: var(--toggle-active-text);
+  transition: 1s color ease;
+}
+
+[data-wm-plugin="pricing-table"] ul.custom-bullets {
+  padding-inline-start: var(--item-padding) !important;
+}
+
+[data-wm-plugin="pricing-table"] ul.custom-bullets[data-rte-list] li{
+  position: relative;
+}
+
+[data-wm-plugin="pricing-table"] ul.custom-bullets[data-rte-list] li>:first-child::before{
+  min-width: var(--bullet-size);
+  height: var(--bullet-size);
+  content: '';
+  position: absolute;
+  background: var(--bullet-background);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='white' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M4.5 12.75l6 6 9-13.5' /%3E%3C/svg%3E%0A");
+  background-size: var(--bullet-icon-size);
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-radius: 50%;
+  margin-right: var(--bullet-spacing);
+}
+
+[data-wm-plugin="pricing-table"] .pricing-item.recommended::before {
+  position: absolute;
+  content: var(--recommended-text);
+  color: var(--recommended-text-color);
+  background: var(--recommended-background);
+  top: var(--recommended-top-position);
+  padding: var(--recommended-padding);
+  font-size: var(--recommended-font-size);
+  font-weight: var(--recommended-font-weight);
+  line-height: var(--recommended-font-size);
+  height: var(--recommended-font-size);
+}
