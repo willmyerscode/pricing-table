@@ -133,10 +133,13 @@ class PricingTable {
       titleWrapper.append(titleElement);
 
       const subtitle = this.getSubtitle(item);
-      const subtitleElement = document.createElement(`${(this.settings.subtitleTag)}`);
-      subtitleElement.classList.add('pricing-subtitle');
-      subtitleElement.innerText = subtitle;
-      titleWrapper.append(subtitleElement);
+
+      if (subtitle) {
+        const subtitleElement = document.createElement(`${this.settings.subtitleTag}`);
+        subtitleElement.classList.add('pricing-subtitle');
+        subtitleElement.innerText = subtitle;
+        titleWrapper.append(subtitleElement);
+      }
 
       const price = this.getPrice(item);
       const itemPrice = document.createElement(`${(this.settings.priceTag)}`);
@@ -238,9 +241,8 @@ class PricingTable {
     var subtitle = title.match(/\[.*?\]/g, '');
     if (subtitle) {
       subtitle[0] = subtitle[0].replace(/^\[|\]$/g, '');
+      return(subtitle[0]);
     }
-    return(subtitle[0]);
-    
   }
   getPrice(item) {
     const description = item.description;
@@ -270,7 +272,7 @@ class PricingTable {
     var price = "";
 
     if (priceLink) {
-      priceLink.remove();
+      priceLink.closest('p').remove();
     }
 
     var updatedDescription = descriptionElement.innerHTML;
