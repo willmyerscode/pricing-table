@@ -223,17 +223,17 @@
 
 [data-wm-plugin="pricing-table"] .pricing-toggle .toggle-active.primary {
   left: 0;
-  transition: 1s left ease;
+  transition: 0.3s left ease;
 }
 
 [data-wm-plugin='pricing-table'] .pricing-toggle .toggle-active.secondary {
   left: 50%;
-  transition: 1s left ease;
+  transition: 0.3s left ease;
 }
 
 [data-wm-plugin="pricing-table"] .pricing-toggle .active {
   color: var(--toggle-active-text);
-  transition: 1s color ease;
+  transition: 0.3s color ease;
 }
 
 [data-wm-plugin="pricing-table"] ul.custom-bullets {
