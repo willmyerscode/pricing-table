@@ -11,6 +11,7 @@
   --item-background: var(--siteBackgroundColor);
   --item-padding: 40px;
   --item-width: 260px;
+  --internal-spacing: 17px;
 
   --title-wrapper-background: var(--item-background);
 
@@ -32,7 +33,7 @@
   --subtitle-padding-bottom: 0px;
   --subtitle-font-size: medium;
 
-  --price-margin-top: 1rem;
+  --price-margin-top: 0rem;
   --suffix-content: 'per month';
   --suffix-two-content: 'per year';
   --suffix-font-size: 12px;
@@ -55,8 +56,8 @@
   --active-toggle-height: 35px;
 
   --bullet-background: var(--list-section-simple-card-color);
-  --bullet-size: 20px;
-  --bullet-icon-size: 15px;
+  --bullet-size: 0.9rem;
+  --bullet-icon-size: 0.7rem;
   --bullet-spacing: 0px;
 
   --recommended-text: 'MOST POPULAR';
@@ -100,6 +101,7 @@
 
 [data-wm-plugin="pricing-table"] .pricing-item {
   display: flex;
+  gap: var(--internal-spacing);
   flex-direction: column;
   position: relative;
   border: var(--border-width) var(--border-type) var(--border-color);
@@ -267,4 +269,11 @@
   font-weight: var(--recommended-font-weight);
   line-height: var(--recommended-font-size);
   height: var(--recommended-font-size);
+}
+
+/**/
+.sqs-block-code [data-wm-plugin="pricing-table"] ol[data-rte-list] li>*, 
+.sqs-block-code [data-wm-plugin="pricing-table"] ul[data-rte-list] li>* {
+    margin-bottom: .5em;
+    margin-top: .5em;
 }
