@@ -263,21 +263,42 @@ class PricingTable {
   }
   getDescription(item) {
     const description = item.description;
-
     const descriptionElement = document.createElement('div');
     descriptionElement.innerHTML = description;
-
-    var priceLink = descriptionElement.querySelector('a[href="#price"');
-
-    var price = "";
-
+    
+    // Remove price link
+    const priceLink = descriptionElement.querySelector('a[href="#price"]');
     if (priceLink) {
       priceLink.closest('p').remove();
     }
-
-    var updatedDescription = descriptionElement.innerHTML;
-
-    return(updatedDescription);
+    
+    // Create bullet points
+    const paragraphs = descriptionElement.querySelectorAll('p');
+    let hasBulletPoints = false;
+    const bulletList = document.createElement('ul');
+    bulletList.dataset.rteList = "default";
+  
+    paragraphs.forEach(function(paragraph) {
+      if (paragraph.textContent.trim().startsWith('-')) {
+        hasBulletPoints = true;
+        const listItem = document.createElement('li');
+        
+        // Remove the leading dash and any whitespace after it
+        paragraph.textContent = paragraph.textContent.replace(/^-\s*/, '');
+        
+        // Move the paragraph into the list item
+        listItem.appendChild(paragraph);
+        
+        bulletList.appendChild(listItem);
+      }
+    });
+    
+    if (hasBulletPoints) {
+      descriptionElement.appendChild(bulletList);
+    }
+    
+    let updatedDescription = descriptionElement.innerHTML;
+    return updatedDescription;
   }
   pricingSuffix(){
     const prices = document.querySelectorAll('.pricing-price');
