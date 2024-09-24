@@ -371,10 +371,10 @@ class PricingTable {
     this.toggleEvent();
   }
   toggleEvent() {
-    const primaryLink = document.querySelector('.toggle-primary');
-    const secondaryLink = document.querySelector('.toggle-secondary');
-    const activeBar = document.querySelector('.toggle-active');
-    const pricingTables = document.querySelectorAll('.wm-pricing-table');
+    const primaryLink = this.el.querySelector('.toggle-primary');
+    const secondaryLink = this.el.querySelector('.toggle-secondary');
+    const activeBar = this.el.querySelector('.toggle-active');
+    const pricingTables = this.el.querySelectorAll('.wm-pricing-table');
     
 
     primaryLink.addEventListener('click', () => {
@@ -480,3 +480,4 @@ class PricingTable {
   };
   window.wmPricingTable.init();
 })();
+
