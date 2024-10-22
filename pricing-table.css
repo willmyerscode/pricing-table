@@ -277,3 +277,23 @@
     margin-bottom: .5em;
     margin-top: .5em;
 }
+
+.sqs-edit-mode-active .code-block [data-wm-plugin="pricing-table"] {
+  color: transparent;
+  background: transparent;
+  font-size: 0;
+  position: absolute;
+  line-height: 0;
+  width: 100%;
+  height: 25px;
+  border: 1px dashed var(--headingLargeColor);
+}
+
+.sqs-edit-mode-active .code-block [data-wm-plugin="pricing-table"]::after {
+  content: 'Pricing Table';
+  color: var(--headingLargeColor);
+  font-size: 12px;
+  position: absolute;
+  top: 50%;
+  transform:translateX(25%);
+}
