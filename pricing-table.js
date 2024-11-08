@@ -157,6 +157,7 @@ class PricingTable {
       button.classList.add('pricing-button');
       button.classList.add('sqs-button-element--primary');
       button.href = item.button.buttonLink;
+      if (item.button.buttonNewWindow) button.target = '_blank';
       button.innerText = item.button.buttonText;
       pricingItem.append(button);
       
@@ -210,6 +211,7 @@ class PricingTable {
       button.classList.add('pricing-button');
       button.classList.add('sqs-button-element--primary');
       button.href = item.button.buttonLink;
+      if (item.button.buttonNewWindow) button.target = '_blank';
       button.innerText = item.button.buttonText;
       pricingItem.append(button);
       
