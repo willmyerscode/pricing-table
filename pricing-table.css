@@ -207,6 +207,7 @@
 
 [data-wm-plugin="pricing-table"] .pricing-toggle .toggle-primary > *, [data-wm-plugin="pricing-table"] .pricing-toggle .toggle-secondary > * {
   margin: 0px;
+  color: var(--toggle-text);
 }
 
 [data-wm-plugin="pricing-table"] .pricing-toggle .toggle-active {
