@@ -232,7 +232,7 @@
   transition: 0.3s left ease;
 }
 
-[data-wm-plugin="pricing-table"] .pricing-toggle .toggle-primary.toggle-active > *, [data-wm-plugin="pricing-table"] .pricing-toggle .toggle-secondary.toggle-active > *  {
+[data-wm-plugin="pricing-table"] .pricing-toggle .toggle-primary.active > *, [data-wm-plugin="pricing-table"] .pricing-toggle .toggle-secondary.active > *  {
   color: var(--toggle-active-text);
   transition: 0.3s color ease;
 }
