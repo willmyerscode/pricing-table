@@ -77,8 +77,11 @@
 [data-wm-plugin="pricing-table"] .pricing-wrapper {
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
+/* The inactive table is lifted out of flow so the wrapper always takes the
+   height of the table being shown, whichever of the two is longer. */
 [data-wm-plugin="pricing-table"] .wm-pricing-table {
   display: flex;
   flex-wrap: wrap;
@@ -86,16 +89,18 @@
   justify-content: var(--table-alignment);
   opacity: 0;
   visibility: hidden;
-  position: relative;
-}
-
-[data-wm-plugin="pricing-table"] .wm-pricing-table:nth-of-type(2) {
   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 [data-wm-plugin="pricing-table"] .wm-pricing-table.pricing-active {
   opacity: 1;
   visibility: visible;
+  position: relative;
+  left: auto;
+  right: auto;
 }
 
 
